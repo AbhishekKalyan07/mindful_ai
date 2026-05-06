@@ -1,16 +1,76 @@
-# React + Vite
+# MindfulAI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+MindfulAI is a modern mental health and wellness assistant built with React, Firebase, and generative AI (Gemini). It supports journaling, chat with AI, and mood tracking—all with secure storage.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Chat with a supportive AI assistant.
+- Secure, user-specific data via Firebase.
+- Reflective journaling module.
+- Mood check-ins and insights.
+- Modern, mobile-friendly UI.
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React (Vite)
+- Firebase (Firestore, Auth)
+- Gemini API
+- Tailwind CSS (optional/if used)
+- Deployed: [Add link]
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 1. Clone and Install
+```bash
+git clone https://github.com/AbhishekKalyan07/mindful_ai.git
+cd mindful_ai
+npm install
+```
+
+### 2. Setup Environment
+
+Copy `.env.example` to `.env` and fill in your credentials:
+
+```
+cp .env.example .env
+```
+
+Edit `.env`:
+```
+VITE_GEMINI_API_KEY=...
+VITE_FIREBASE_API_KEY=...
+VITE_FIREBASE_AUTH_DOMAIN=...
+VITE_FIREBASE_PROJECT_ID=...
+VITE_FIREBASE_STORAGE_BUCKET=...
+VITE_FIREBASE_MESSAGING_SENDER_ID=...
+VITE_FIREBASE_APP_ID=...
+VITE_FIREBASE_MEASUREMENT_ID=...
+```
+
+### 3. Start the App
+
+```bash
+npm run dev
+```
+
+The app will run at `http://localhost:5173/`.
+
+### 4. Build for Production
+
+```bash
+npm run build
+npm run preview
+```
+
+## Deployment
+
+- Best deployed on [Vercel](https://vercel.com/), [Netlify](https://www.netlify.com/) or Firebase Hosting.
+- Set environment variables in your deployment platform using the `.env.example` as reference.
+
+## Firebase Security
+
+Ensure you use secure Firestore rules! See example below.
+
+## Contributing
+
+PRs and issues welcome.
