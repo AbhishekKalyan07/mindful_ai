@@ -1,3 +1,99 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .glass-panel {
+    @apply bg-space-800/40 backdrop-blur-xl border border-white/10 shadow-2xl;
+  }
+  
+  .glass-button {
+    @apply bg-white/5 hover:bg-white/10 backdrop-blur-md border border-white/10 text-white transition-all shadow-lg;
+  }
+
+  .gold-glow {
+    @apply shadow-[0_0_15px_rgba(255,215,0,0.3)] hover:shadow-[0_0_25px_rgba(255,215,0,0.5)];
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #050505; /* Deep space background */
+  color: white;
+  overflow-x: hidden;
+}
+
+/* 3D Starfield CSS */
+.starfield {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  overflow: hidden;
+}
+
+.stars, .stars2, .stars3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+}
+
+.stars {
+  animation: animStar 50s linear infinite;
+  box-shadow: 100px 200px #FFF, 500px 300px #FFF, 300px 800px #FFF, 900px 100px #FFF, 1200px 500px #FFF, 400px 900px #FFF; /* Just a few for example, will use multiple box-shadows */
+}
+.stars2 {
+  animation: animStar 100s linear infinite;
+}
+.stars3 {
+  animation: animStar 150s linear infinite;
+}
+
+/* Generative stars (simulated with large box-shadow) */
+@function multiple-box-shadow ($n) {
+  $value: '#{random(2000)}px #{random(2000)}px #FFF';
+  @for $i from 2 through $n {
+    $value: '#{$value}, #{random(2000)}px #{random(2000)}px #FFF';
+  }
+  @return unquote($value);
+}
+
+.stars {
+  width: 1px;
+  height: 1px;
+  background: transparent;
+  box-shadow: 1744px 122px #FFF, 134px 1321px #FFF, 92px 1461px #FFF, 1244px 122px #FFF, 14px 1821px #FFF, 942px 461px #FFF, 1044px 522px #FFF, 834px 321px #FFF, 192px 661px #FFF, 244px 1022px #FFF, 1134px 21px #FFF, 592px 861px #FFF, 1544px 922px #FFF, 734px 1121px #FFF, 1892px 161px #FFF;
+}
+.stars2 {
+  width: 2px;
+  height: 2px;
+  background: transparent;
+  box-shadow: 174px 122px #FFF, 1344px 131px #FFF, 921px 161px #FFF, 124px 1222px #FFF, 144px 181px #FFF, 94px 461px #FFF, 104px 522px #FFF, 834px 321px #FFF, 192px 661px #FFF;
+}
+.stars3 {
+  width: 3px;
+  height: 3px;
+  background: transparent;
+  box-shadow: 174px 12px #FFF, 134px 13px #FFF, 92px 16px #FFF, 124px 122px #FFF, 144px 18px #FFF, 94px 46px #FFF;
+}
+
+@keyframes animStar {
+  from { transform: translateY(0px); }
+  to { transform: translateY(-2000px); }
+}
+
+/* Hide scrollbar */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
