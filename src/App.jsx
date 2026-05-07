@@ -6,6 +6,7 @@ import {
   Flame, CloudRain, CloudSun, Thermometer, ArrowRight, Loader, AlertTriangle, Settings,
   Mic, MicOff, Volume2, StopCircle, ChevronRight, Shield
 } from 'lucide-react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 // --- FIREBASE IMPORTS ---
 import { initializeApp } from 'firebase/app';
@@ -696,6 +697,7 @@ const MainApp = () => {
           {activeTab === 'journal' && <Journal user={user} userType={userType} currentUser={currentUser} />}
         </main>
       </div>
+      <SpeedInsights />
     </div>
   );
 };
